@@ -18,7 +18,10 @@ public class ApplicationSecurity {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .cors(AbstractHttpConfigurer::disable);
+                .cors(AbstractHttpConfigurer::disable)
+                .authorizeRequests(authorizeRequests -> authorizeRequests.anyRequest()
+                        .permitAll())
+                .csrf(AbstractHttpConfigurer::disable);
 //                .authorizeHttpRequests((authorize) -> authorize
 //                        .anyRequest().authenticated()
 //                )
