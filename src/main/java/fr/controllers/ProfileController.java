@@ -3,10 +3,7 @@ package fr.controllers;
 import fr.Services.UserService;
 import fr.dtos.UserProfile;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -21,7 +18,7 @@ public class ProfileController {
     }
 
     @PostMapping("/user/profile")
-    public void save(){
-        this.userService.save(this.userService.getUserProfile());
+    public void save(@RequestBody UserProfile userProfile){
+        this.userService.save(userProfile);
     }
 }

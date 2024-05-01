@@ -15,25 +15,7 @@ public class UserService {
     private UserProfilRepository userProfilRepository;
 
     public UserProfile getUserByEmail(String email) {
-        List<UserProfile> liste =  this.userProfilRepository.findAll();
-        return liste
-                .stream()
-                .filter(userProfile -> userProfile.getEmail().equals(email))
-                .findFirst()
-                .orElse(null);
-
-    }
-
-    public UserProfile getUserProfile() {
-        UserProfile userProfile = new UserProfile();
-        userProfile.setFirstName("thibault");
-        userProfile.setLastName("HUET");
-        userProfile.setEmail("thibault.huet.bzh@gmail.com");
-        UserTheme userTheme = new UserTheme();
-        userTheme.setAccent("#1adbc5");
-        userTheme.setDarkMode(true);
-        userProfile.setUserTheme(userTheme);
-        return userProfile;
+        return this.userProfilRepository.findByEmail(email);
     }
 
     public void save(UserProfile userProfile){
