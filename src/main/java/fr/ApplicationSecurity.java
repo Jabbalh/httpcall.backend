@@ -1,4 +1,4 @@
-package org.example.apicallbackend;
+package fr;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
